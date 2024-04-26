@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:22:58 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/23 23:41:32 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/26 19:20:01 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # ifndef BOOL
-#  define BOOL int
 #  define FALSE 0
 #  define TRUE 1
 # endif
