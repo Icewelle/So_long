@@ -1,7 +1,10 @@
 CC = cc
 CCFLAGS = -Wall -Werror -Wextra -I include
 SRC =	src/main.c\
-		src/parsing.c
+		src/parsing.c\
+		src/errors.c\
+		src/pathfinding.c\
+		src/missing.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 LIBFT = libft
