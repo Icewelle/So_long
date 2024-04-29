@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 02:02:09 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 06:09:40 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/29 06:18:34 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Verifie si il manque ou si il y a trop de characters obligatoires.
 int	what_missing(int coin, int player, int exit)
 {
 	if (coin < 1)
@@ -27,6 +28,8 @@ int	what_missing(int coin, int player, int exit)
 	return (NO_ERROR);
 }
 
+// Compte le nombre de characters obligatoire avant de verifier si la quantite
+// obtenu est correct.
 int	find_missing(char *map_line, int linenbr)
 {
 	static int	coin;

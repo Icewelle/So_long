@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/27 00:39:02 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/29 06:16:28 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Main ^^.
 int	main(int argc, char *argv[])
 {
 	if (argc != 2)

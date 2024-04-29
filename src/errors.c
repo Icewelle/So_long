@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 22:37:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 05:47:06 by cluby            ###   ########.fr       */
+/*   Updated: 2024/04/29 06:16:05 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Affiche les differents messages d'erreurs.
 void	errors(int error)
 {
 	if (error == WALLS_ERROR)
