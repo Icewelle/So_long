@@ -1,10 +1,23 @@
-CC = cc
-CCFLAGS = -Wall -Werror -Wextra -I include
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/13 10:41:57 by mbaumgar          #+#    #+#              #
+#    Updated: 2024/05/14 23:34:43 by cluby            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+C = cc
+CCFLAGS = -Wall -Werror -Wextra -I include -fsanitize=address
 SRC =	src/main.c\
 		src/parsing.c\
 		src/errors.c\
 		src/pathfinding.c\
-		src/missing.c
+		src/missing.c\
+		src/utils.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 LIBFT = libft
@@ -13,7 +26,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@make -C $(LIBFT)
-	cc $(CCFLAGS) $(OBJ) -o so_long ./libft/libft.a
+	cc $(CCFLAGS) $(OBJ) -o so_long ./libft/libft.a -ldl -lglfw -lm -lpthread -LMLX42/build -lmlx42 -IMLX42/include
 
 clean :
 	rm -f $(OBJ)

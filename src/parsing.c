@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 06:08:13 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/14 23:52:44 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int	parsing_y(char **map, int linenbr)
 // Enregistre la map dans une tableau de tableau pour pouvoir
 // lire ligne par ligne plus facilement et renvoi les erreur
 // si besoin.
-void	get_map(char **argv)
+char	**get_map(char **argv)
 {
 	char	**map_joined;
 	int		fd;
@@ -111,15 +111,16 @@ void	get_map(char **argv)
 	fd = open(argv[1], O_RDONLY);
 	map_joined = (char **)malloc(sizeof(char *));
 	if (!map_joined)
-		return ;
+		return (NULL);
 	map_joined[0] = get_next_line(fd);
 	i = 0;
 	while (map_joined[i] != NULL)
 		map_joined[++i] = get_next_line(fd);
 	error = parsing_y(map_joined, i - 1);
 	if (error != NO_ERROR)
-		errors(error);
+		return(errors(error), map_joined);
 	error = pathfinding(map_joined, i - 1);
 	if (error != NO_ERROR)
-		errors(error);
+		return(errors(error), map_joined);
+	return (map_joined);
 }

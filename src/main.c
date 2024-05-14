@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 06:16:28 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/14 23:53:21 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 // Main ^^.
 int	main(int argc, char *argv[])
 {
+	char **map;
+
 	if (argc != 2)
 		return (0);
-	get_map(argv);
+	map = get_map(argv);
+	freemap(map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 22:37:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 06:16:05 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/08 16:37:00 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	errors(int error)
 	if (error == NO_PATH_PIECE)
 		ft_putstr_fd("Error : At least one piece cannot be taken\n", 2);
 	if (error == BAD_SIZE)
-		ft_putstr_fd("Error : The map isn't rectangle shaped", 2);
+		ft_putstr_fd("Error : The map isn't rectangular", 2);
 	if (error == BAD_CHARACTER)
 		ft_putstr_fd("Error : One or more character isn't allowed\n", 2);
 }
