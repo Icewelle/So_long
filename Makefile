@@ -9,7 +9,6 @@
 #    Updated: 2024/05/14 23:34:43 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-#test
 
 C = cc
 CCFLAGS = -Wall -Werror -Wextra -I include -fsanitize=address
