@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:22:58 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/26 19:20:01 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/30 16:45:39 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # endif
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 typedef struct s_list
 {

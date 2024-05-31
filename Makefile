@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/13 10:41:57 by mbaumgar          #+#    #+#              #
-#    Updated: 2024/05/14 23:34:43 by cluby            ###   ########.fr        #
+#    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
+#    Updated: 2024/05/31 16:19:29 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 C = cc
-CCFLAGS = -Wall -Werror -Wextra -I include -fsanitize=address
+CCFLAGS = -Wall -Werror -Wextra -I include -g3
 SRC =	src/main.c\
 		src/parsing.c\
 		src/errors.c\

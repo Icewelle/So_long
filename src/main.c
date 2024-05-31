@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/05/14 23:53:21 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/31 17:46:28 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 // Main ^^.
 int	main(int argc, char *argv[])
 {
-	char **map;
+	t_game game;
 
 	if (argc != 2)
 		return (0);
-	map = get_map(argv);
-	freemap(map);
+	get_map(argv, &game);
+	if (!game.map)
+		return (0);
+	freemap(game.map);
 	return (0);
 }

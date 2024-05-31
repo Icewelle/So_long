@@ -1,5 +1,5 @@
 CC = cc
-CCFLAGS = -Wall -Werror -Wextra -Iincludes
+CCFLAGS = -Wall -Werror -Wextra -Iincludes -g3
 SRC =	convert/ft_atoi.c \
 		str/ft_bzero.c \
 		str/ft_calloc.c\

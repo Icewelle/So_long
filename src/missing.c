@@ -6,31 +6,30 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 02:02:09 by cluby             #+#    #+#             */
-/*   Updated: 2024/04/29 06:18:34 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/31 16:06:27 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 // Verifie si il manque ou si il y a trop de characters obligatoires.
-int	what_missing(int coin, int player, int exit)
+void	what_missing(int coin, int player, int exit, char **map)
 {
 	if (coin < 1)
-		return (NO_PIECES_ERROR);
+		errors(NO_PIECES_ERROR, map);
 	if (player < 1)
-		return (NO_PLAYER_ERROR);
+		errors(NO_PLAYER_ERROR, map);
 	if (player > 1)
-		return (TOO_MANY_PLAYER_ERROR);
+		errors(TOO_MANY_PLAYER_ERROR, map);
 	if (exit < 1)
-		return (NO_EXIT_ERROR);
+		errors(NO_EXIT_ERROR, map);
 	if (exit > 1)
-		return (TOO_MANY_EXIT_ERROR);
-	return (NO_ERROR);
+		errors(TOO_MANY_EXIT_ERROR, map);
 }
 
 // Compte le nombre de characters obligatoire avant de verifier si la quantite
 // obtenu est correct.
-int	find_missing(char *map_line, int linenbr)
+void	find_missing(char *map_line, int linenbr, char **map)
 {
 	static int	coin;
 	static int	player;
@@ -51,6 +50,5 @@ int	find_missing(char *map_line, int linenbr)
 	}
 	i++;
 	if (i == linenbr)
-		return (what_missing(coin, player, exit));
-	return (NO_ERROR);
+		what_missing(coin, player, exit, map);
 }
