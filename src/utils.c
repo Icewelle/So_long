@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/05/31 18:13:27 by cluby            ###   ########.fr       */
+/*   Updated: 2024/05/31 19:19:15 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,8 @@ int	count_lines(char *map)
 	i = 0;
 	while (buffer[i])
 	{
-		if (buffer[i] == '\n')
+		if (buffer[i++] == '\n')
 			lines++;
-		i++;
 	}
 	return (free(buffer), close(fd), lines);
 }
