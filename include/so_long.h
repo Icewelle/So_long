@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/05/31 18:15:32 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/01 17:36:50 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,30 @@
 # define TOO_MANY_PLAYER_ERROR "There's too many player on the map\n"
 # define OPEN_ERROR "Couldn't open the file\n"
 # define MALLOC_ERROR "Couldn't allocate memory\n"
+# define ERROR_PATH "Couldn't find a path to the exit or a collectible\n"
+# define FILLED 'F'
 
 typedef struct game
 {
 	char	**map;
+	char	**temp_map;
 	int		player_x;
 	int		player_y;
 	int		exit_x;
 	int		exit_y;
 	int		height;
 	int		width;
+	int		coinsnbr;
+	int		playernbr;
+	int		exitnbr;
+	int     is_exit;
 }			t_game;
 
 
 void	get_map(char **argv, t_game *game);
 void	errors(char *error, char **map);
-void	pathfinding(char **map, int linenbr);
-void	find_missing(char *map_line, int linenbr, char **map);
+void	pathfinding(t_game game);
+void	find_missing(char *map_line, t_game *game, int y);
 void	freemap(char **map);
 int		count_lines(char *map);
 void	init_game(t_game *game);

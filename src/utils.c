@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/05/31 19:19:15 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/01 20:55:56 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	count_lines(char *map)
 	{
 		if (buffer[i++] == '\n')
 			lines++;
+		bytesread = read(fd, buffer, BUFFER_SIZE);
 	}
 	return (free(buffer), close(fd), lines);
 }
@@ -60,10 +61,15 @@ int	count_lines(char *map)
 void	init_game(t_game *game)
 {
 	game->map = NULL;
+	game->temp_map = NULL;
 	game->player_x = 0;
 	game->player_y = 0;
 	game->exit_x = 0;
 	game->exit_y = 0;
 	game->height = 0;
 	game->width = 0;
+	game->coinsnbr = 0;
+	game->playernbr = 0;
+	game->exitnbr = 0;
+	game->is_exit = 0;
 }
