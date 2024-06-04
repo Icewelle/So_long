@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/01 20:55:56 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/04 20:09:00 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,24 @@ void	freemap(char **map)
 
 int	count_lines(char *map)
 {
-	int		lines;
-	int		fd;
-	char	*buffer;
-	int		bytesread;
-	int		i;
+	int linenbr;
+	int fd;
+	char *line;
 
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		return (0);
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (close(fd), 0);
-	bytesread = 1;
-	ft_bzero(buffer, BUFFER_SIZE + 1);
-	bytesread = read(fd, buffer, BUFFER_SIZE);
-	if (bytesread == -1)
-		return (free(buffer), close(fd), 0);
-	lines = 0;
-	i = 0;
-	while (buffer[i])
-	{
-		if (buffer[i++] == '\n')
-			lines++;
-		bytesread = read(fd, buffer, BUFFER_SIZE);
-	}
-	return (free(buffer), close(fd), lines);
+		return (-1);
+	line = get_next_line(fd);
+	linenbr = 0;
+     while (line != NULL)
+    {
+        free(line);
+        line = get_next_line(fd);
+		linenbr++;
+    }
+    free (line);
+    close(fd);
+	return (linenbr);
 }
 
 void	init_game(t_game *game)

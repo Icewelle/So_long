@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/01 17:38:39 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/04 20:48:17 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static int	flood_fill(t_game *game, int x, int y, int collect)
 		return (0);
 	if (game->temp_map[y][x] == '1' || game->temp_map[y][x] == FILLED)
 		return (0);
-	printf("x : %d\ny : %d\n", x, y);
 	if (game->temp_map[y][x] == 'C')
 		(collect)--;
 	if (game->temp_map[y][x] == 'E')
@@ -43,11 +42,15 @@ void	pathfinding(t_game game)
 
 	y = 0;
 	while (y < game.height)
-		find_missing(game.map[y++], &game, y);
+	{
+		find_missing(game.map[y], &game, y);
+		y++;
+	}
 	game.temp_map = (char **)malloc(sizeof(char *) * (game.height + 1));
 	if (!game.temp_map)
 		errors(MALLOC_ERROR, game.map);
 	game.temp_map = game.map;
 	if (!(flood_fill(&game, game.player_x, game.player_y, game.coinsnbr)))
 		errors(ERROR_PATH, game.map);
+	freemap(game.temp_map);
 }

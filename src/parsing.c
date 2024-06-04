@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/01 20:54:44 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/04 20:46:42 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,10 @@ void	get_map(char **argv, t_game *game)
 
 	init_game(game);
 	game->height = count_lines(argv[1]);
-	if (game->height == 0)
+	if (game->height == -1)
 		errors(OPEN_ERROR, NULL);
-	printf("height : %d\n", game->height);
+	else if (game->height == 0)
+		errors(MAP_ERROR, NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		errors(OPEN_ERROR, NULL);

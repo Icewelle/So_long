@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/01 17:36:50 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/04 20:06:53 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define MALLOC_ERROR "Couldn't allocate memory\n"
 # define ERROR_PATH "Couldn't find a path to the exit or a collectible\n"
 # define FILLED 'F'
+# define MAP_ERROR "Map is empty\n"
 
 typedef struct game
 {
