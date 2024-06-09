@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:50:19 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/08 23:43:22 by cluby            ###   ########.fr       */
+/*   Created: 2024/06/09 03:02:17 by cluby             #+#    #+#             */
+/*   Updated: 2024/06/09 03:09:20 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/so_long.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	letsstart(t_game *game)
 {
-	void	*ptr;
-	size_t	check;
+	int	i;
 
-	check = -1;
-	if (nmemb == 0 || size == 0)
+	i = 0;
+	while (game->map[i])
 	{
-		nmemb = 0;
-		size = 0;
+		ft_printf("%s", game->map[i]);
+		i++;
 	}
-	if (nmemb > check / size)
-		return (NULL);
-	ptr = (char *)malloc (nmemb * size);
-	if (ptr)
-		ft_bzero (ptr, nmemb * size);
-	return (ptr);
 }

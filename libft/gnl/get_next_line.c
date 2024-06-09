@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 12:31:15 by marvin            #+#    #+#             */
-/*   Updated: 2024/05/30 20:15:08 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/08 23:31:57 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,10 @@ char	*ft_test(int fd, char **content)
 	char	*buffer;
 	int		bytesread;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char *)ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	if (!buffer)
 		return (free(*content), NULL);
 	bytesread = 1;
-	ft_bzero(buffer, BUFFER_SIZE + 1);
 	while (bytesread != 0 && !find_nl(buffer))
 	{
 		bytesread = read(fd, buffer, BUFFER_SIZE);

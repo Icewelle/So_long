@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/04 20:06:53 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:16:43 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@
 # define ERROR_PATH "Couldn't find a path to the exit or a collectible\n"
 # define FILLED 'F'
 # define MAP_ERROR "Map is empty\n"
+# define FILE_NAME "File isn't a .ber\n"
 
 typedef struct game
 {
+	mlx_t	*mlx;
 	char	**map;
 	char	**temp_map;
 	int		player_x;
@@ -46,9 +48,8 @@ typedef struct game
 	int		coinsnbr;
 	int		playernbr;
 	int		exitnbr;
-	int     is_exit;
+	int		is_exit;
 }			t_game;
-
 
 void	get_map(char **argv, t_game *game);
 void	errors(char *error, char **map);
@@ -57,5 +58,8 @@ void	find_missing(char *map_line, t_game *game, int y);
 void	freemap(char **map);
 int		count_lines(char *map);
 void	init_game(t_game *game);
+void	makemap(t_game *game, int fd);
+void	checkarg(char *filename);
+void	letsstart(t_game *game);
 
 #endif

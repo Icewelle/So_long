@@ -6,19 +6,21 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/06/01 19:22:42 by cluby            ###   ########.fr        #
+#    Updated: 2024/06/09 03:10:20 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS += --silent
 C = cc
-CCFLAGS = -Wall -Werror -Wextra -I include -g3
+CCFLAGS = -Wall -Werror -Wextra -I include -g
 SRC =	src/main.c\
 		src/parsing.c\
 		src/errors.c\
 		src/pathfinding.c\
 		src/missing.c\
-		src/utils.c
+		src/utils.c\
+		src/check_arg.c\
+		src/game.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 LIBFT = libft

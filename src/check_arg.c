@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:50:19 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/08 23:43:22 by cluby            ###   ########.fr       */
+/*   Created: 2024/06/09 02:39:47 by cluby             #+#    #+#             */
+/*   Updated: 2024/06/09 02:58:11 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/so_long.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	checkarg(char *filename)
 {
-	void	*ptr;
-	size_t	check;
+	int	i;
+	int	comma;
 
-	check = -1;
-	if (nmemb == 0 || size == 0)
+	i = 0;
+	comma = 0;
+	while (filename[i])
 	{
-		nmemb = 0;
-		size = 0;
+		if (filename[i] == '.')
+		{
+			comma = 1;
+			if ((filename[i + 1] != 'b' || filename[i + 2] != 'e' || filename[i + 3] != 'r'))
+				errors(FILE_NAME, NULL);
+		}
+		i++;
 	}
-	if (nmemb > check / size)
-		return (NULL);
-	ptr = (char *)malloc (nmemb * size);
-	if (ptr)
-		ft_bzero (ptr, nmemb * size);
-	return (ptr);
+	if (comma == 0)
+		errors(FILE_NAME, NULL);
 }

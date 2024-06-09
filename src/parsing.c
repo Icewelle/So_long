@@ -6,14 +6,14 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/04 20:46:42 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 02:40:57 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 // Verifie que la premiere et derniere ligne soit remplie de mur (1).
-void	top_bottom_walls(char *map_line, char **map_joined)
+static void	top_bottom_walls(char *map_line, char **map_joined)
 {
 	int	x;
 
@@ -30,7 +30,7 @@ void	top_bottom_walls(char *map_line, char **map_joined)
 
 // Verifie si la map a bien les 2 cote oppose de la meme longueur
 // un rectangle quoi.
-void	check_rectangle(char *map_line, char **map_joined)
+static void	check_rectangle(char *map_line, char **map_joined)
 {
 	int			x;
 	static int	first_line;
@@ -48,7 +48,7 @@ void	check_rectangle(char *map_line, char **map_joined)
 // si un character n'est pas accepter dans la list, et si un
 // des murs de cote n'est pas bien fermer.
 // (reste du parsing fait dans pathfinding)
-void	parsing_x(char *map_line, char **map_joined)
+static void	parsing_x(char *map_line, char **map_joined)
 {
 	int	x;
 
@@ -70,7 +70,7 @@ void	parsing_x(char *map_line, char **map_joined)
 
 // Verifie les erreurs pour la premiere et derniere ligne puis envoie
 // la map ligne par ligne a parsing_x.
-void	parsing_y(char **map, int linenbr)
+static void	parsing_y(char **map, int linenbr)
 {
 	int	y;
 
@@ -93,18 +93,12 @@ void	get_map(char **argv, t_game *game)
 	game->height = count_lines(argv[1]);
 	if (game->height == -1)
 		errors(OPEN_ERROR, NULL);
-	else if (game->height == 0)
+	else if (game->height < 3)
 		errors(MAP_ERROR, NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		errors(OPEN_ERROR, NULL);
-	game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
-	if (!game->map)
-		errors(MALLOC_ERROR, NULL);
-	game->map[0] = get_next_line(fd);
-	i = 0;
-	while (game->map[i] != NULL)
-		game->map[++i] = get_next_line(fd);
+	makemap(game, fd);
 	game->width = ft_strlen(game->map[0]) - 1;
 	parsing_y(game->map, game->height - 1);
 	pathfinding(*game);
