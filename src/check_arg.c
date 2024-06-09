@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 02:39:47 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 02:58:11 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:33:10 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Check if the file is in the good format.
 void	checkarg(char *filename)
 {
 	int	i;

@@ -6,12 +6,16 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 02:42:25 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:59:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Replace the tiles of the map which aren't character '1' by the FILLED
+// character (here initialized as 'F' like filled), while also counting
+// the number of collectibles and exit it replace and at the end we check if
+// all collectibles and exit have been reached.
 static int	flood_fill(t_game *game, int x, int y, int collect)
 {
 	if (x < 0 || y < 0 || x > game->width - 1 || y > game->height - 1)
@@ -33,6 +37,8 @@ static int	flood_fill(t_game *game, int x, int y, int collect)
 	return (0);
 }
 
+// Make a copy of the make so the real map isn't modified when doing the
+// flood fill.
 static void	cpymap(t_game *game)
 {
 	int	y;
@@ -53,9 +59,10 @@ static void	cpymap(t_game *game)
 	}
 }
 
-// Suite du parsing pour savoir si il manque des elements 
-// (piece, joueur, sortie) ainsi que pour savoir si toutes 
-// les pieces et la sortie sont possible a atteindre.
+// End of the parsing by checking if we do not miss or have too much of some
+// elements (collectible, player, exit).
+// Doing a simple pathfinding with a flood fill algorithm to make sure
+// the collectibles and the exit are all reachable (no walls blocking the path).
 void	pathfinding(t_game game)
 {
 	int	y;

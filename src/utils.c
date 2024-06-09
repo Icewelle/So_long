@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 02:44:56 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 04:04:18 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Free the malloced maps
 void	freemap(char **map)
 {
 	int	i;
@@ -28,6 +29,8 @@ void	freemap(char **map)
 	free(map);
 }
 
+// Count the lines in the file map to use them later, to malloc properly
+// and also to have the height of the map.
 int	count_lines(char *map)
 {
 	int		linenbr;
@@ -50,6 +53,7 @@ int	count_lines(char *map)
 	return (linenbr);
 }
 
+// Initialize most of the game datas to be able to use everything later.
 void	init_game(t_game *game)
 {
 	game->map = NULL;
@@ -66,6 +70,9 @@ void	init_game(t_game *game)
 	game->is_exit = 0;
 }
 
+// Register the map from the file into a malloced array of array. 
+// One array per line to which make it one string per line, easier
+// to read and use later for parsing and to display the tiles.
 void	makemap(t_game *game, int fd)
 {
 	int	i;

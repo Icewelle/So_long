@@ -6,13 +6,14 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 02:02:09 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/01 15:13:02 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:36:23 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Verifie si il manque ou si il y a trop de characters obligatoires.
+// Do the final check for the missing element to be sure there's not
+// too little or too many elements.
 static void	what_missing(t_game game)
 {
 	if (game.playernbr < 1)
@@ -27,8 +28,8 @@ static void	what_missing(t_game game)
 		errors(TOO_MANY_EXIT_ERROR, game.map);
 }
 
-// Compte le nombre de characters obligatoire avant de verifier si la quantite
-// obtenu est correct.
+// Check if the map is missing elements like a collectible an exit or
+// the player starting point.
 void	find_missing(char *map_line, t_game *game, int y)
 {
 	static int	i;

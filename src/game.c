@@ -6,12 +6,13 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 03:02:17 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 03:09:20 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:34:11 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+// Work in progress.
 void	letsstart(t_game *game)
 {
 	int	i;

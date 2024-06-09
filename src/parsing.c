@@ -6,13 +6,14 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 02:40:57 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/09 03:50:59 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Verifie que la premiere et derniere ligne soit remplie de mur (1).
+// Specials cases for characters, first and last lines absolutly have to be
+// filled by the character '1'.
 static void	top_bottom_walls(char *map_line, char **map_joined)
 {
 	int	x;
@@ -28,8 +29,9 @@ static void	top_bottom_walls(char *map_line, char **map_joined)
 	}
 }
 
-// Verifie si la map a bien les 2 cote oppose de la meme longueur
-// un rectangle quoi.
+// Use the fact that a static variable is always initialized to 0 to be able
+// to register the first line lenght and then compare with all the nexts ones.
+// If one isn't the same length is mean the map doesn't have the good shape.
 static void	check_rectangle(char *map_line, char **map_joined)
 {
 	int			x;
@@ -44,10 +46,10 @@ static void	check_rectangle(char *map_line, char **map_joined)
 		errors(BAD_SIZE, map_joined);
 }
 
-// Verifie les erreurs de taille de map (non rectangulaire),
-// si un character n'est pas accepter dans la list, et si un
-// des murs de cote n'est pas bien fermer.
-// (reste du parsing fait dans pathfinding)
+// Check the size of each lines and if there's any non-allowed
+// characters.
+// Also check that the left and right walls are... well, walls
+// (char '1').
 static void	parsing_x(char *map_line, char **map_joined)
 {
 	int	x;
@@ -68,8 +70,8 @@ static void	parsing_x(char *map_line, char **map_joined)
 		errors(WALLS_ERROR, map_joined);
 }
 
-// Verifie les erreurs pour la premiere et derniere ligne puis envoie
-// la map ligne par ligne a parsing_x.
+// Check the first and last lines since they are special cases and then check
+// all the others lines to see if there is any non-allowed characters.
 static void	parsing_y(char **map, int linenbr)
 {
 	int	y;
@@ -81,9 +83,8 @@ static void	parsing_y(char **map, int linenbr)
 		parsing_x(map[y++], map);
 }
 
-// Enregistre la map dans une tableau de tableau pour pouvoir
-// lire ligne par ligne plus facilement et renvoi les erreur
-// si besoin.
+// The main function that while launch the others function who, in the end
+// (if the given map is valid), register the map of the game for later.
 void	get_map(char **argv, t_game *game)
 {
 	int		fd;
