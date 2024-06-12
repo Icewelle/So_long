@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   keyfunc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/09 02:39:47 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/10 21:48:07 by cluby            ###   ########.fr       */
+/*   Created: 2024/06/12 19:59:32 by cluby             #+#    #+#             */
+/*   Updated: 2024/06/12 20:05:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-// Check if the file is in the good format.
-void	checkarg(char *filename)
+void	keyfunc(mlx_key_data_t keydata, t_game *game)
 {
-	int	i;
-	int	comma;
-
-	i = 0;
-	comma = 0;
-	while (filename[i])
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 	{
-		if (filename[i] == '.')
-		{
-			comma = 1;
-			if ((filename[i + 1] != 'b' || filename[i + 2] != 'e' || \
-			filename[i + 3] != 'r'))
-				errors(FILE_NAME, NULL);
-		}
-		i++;
+		mlx_delete_image(game->mlx, image)
 	}
-	if (comma == 0)
-		errors(FILE_NAME, NULL);
 }

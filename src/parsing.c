@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 03:50:59 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/12 20:28:28 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ static void	parsing_x(char *map_line, char **map_joined)
 	while (map_line[x])
 	{
 		if (map_line[x] != '0' && map_line[x] != '1' && map_line[x] != 'E' && \
-			map_line[x] != 'C' && map_line[x] != 'P' && map_line[x] != 'M' && \
-			map_line[x] != '\n')
+			map_line[x] != 'C' && map_line[x] != 'P' && map_line[x] != '\n')
 			errors(BAD_CHARACTER, map_joined);
 		x++;
 	}
@@ -90,7 +89,7 @@ void	get_map(char **argv, t_game *game)
 	int		fd;
 	int		i;
 
-	init_game(game);
+	init_game(*game);
 	game->height = count_lines(argv[1]);
 	if (game->height == -1)
 		errors(OPEN_ERROR, NULL);

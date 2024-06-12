@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 03:16:43 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/12 20:27:54 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/includes/libft.h"
 # include <fcntl.h>
 # include <stdio.h>
+# include "../MLX42/include/MLX42/MLX42.h"
 # define NO_ERROR "Nothing to look at :D\n"
 # define WALLS_ERROR "Walls aren't closed properly\n"
 # define NO_PIECES_ERROR "There's no pieces on the map\n"
@@ -33,23 +34,44 @@
 # define FILLED 'F'
 # define MAP_ERROR "Map is empty\n"
 # define FILE_NAME "File isn't a .ber\n"
+# define MLX_ERROR "MLX failed to initialize\n"
+# define TILE_SIZE 64
+
+typedef struct textures
+{
+	mlx_texture_t	*player;
+	mlx_texture_t	*ground;
+	mlx_texture_t	*wall;
+	mlx_texture_t	*coins;
+}					t_textures;
+
+typedef struct images
+{
+	mlx_image_t	*player;
+	mlx_image_t	*ground;
+	mlx_image_t	*wall;
+	mlx_image_t	*coins;
+}				t_images;
 
 typedef struct game
 {
-	mlx_t	*mlx;
-	char	**map;
-	char	**temp_map;
-	int		player_x;
-	int		player_y;
-	int		exit_x;
-	int		exit_y;
-	int		height;
-	int		width;
-	int		coinsnbr;
-	int		playernbr;
-	int		exitnbr;
-	int		is_exit;
-}			t_game;
+	mlx_t		*mlx;
+	char		**map;
+	char		**temp_map;
+	int			player_x;
+	int			player_y;
+	int			exit_x;
+	int			exit_y;
+	int			height;
+	int			width;
+	int			coinsnbr;
+	int			playernbr;
+	int			exitnbr;
+	int			is_exit;
+	int			pos_x;
+	int			pos_y;
+	t_images	*img;
+}				t_game;
 
 void	get_map(char **argv, t_game *game);
 void	errors(char *error, char **map);
@@ -57,9 +79,10 @@ void	pathfinding(t_game game);
 void	find_missing(char *map_line, t_game *game, int y);
 void	freemap(char **map);
 int		count_lines(char *map);
-void	init_game(t_game *game);
+void	init_game(t_game game);
 void	makemap(t_game *game, int fd);
 void	checkarg(char *filename);
-void	letsstart(t_game *game);
+void	make_map(t_game *game, t_textures *texture);
+void	clean_kill(t_game *game, t_textures *texture);
 
 #endif
