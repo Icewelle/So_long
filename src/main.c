@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/12 20:20:21 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/15 00:20:18 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	main(int argc, char *argv[])
 	game.mlx = mlx_init(game.width * (TILE_SIZE + 1), \
 	game.height * (TILE_SIZE + 1), "So_long", true);
 	if (!(game.mlx))
-		errors(MLX_ERROR, game.map);
+		errors(MLX_ERROR, game.map, game.img);
 	make_map(&game, &texture);
-	//mlx_key_hook(game.mlx, &keyfunc, &game);
+	mlx_key_hook(game.mlx, &keyfunc, &game);
 	mlx_loop(game.mlx);
 	clean_kill(&game, &texture);
 	return (0);

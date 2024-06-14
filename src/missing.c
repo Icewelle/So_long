@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 02:02:09 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 03:36:23 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/14 21:16:11 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
 static void	what_missing(t_game game)
 {
 	if (game.playernbr < 1)
-		errors(NO_PLAYER_ERROR, game.map);
+		errors(NO_PLAYER_ERROR, game.map, game.img);
 	if (game.playernbr > 1)
-		errors(TOO_MANY_PLAYER_ERROR, game.map);
+		errors(TOO_MANY_PLAYER_ERROR, game.map, game.img);
 	if (game.coinsnbr < 1)
-		errors(NO_PIECES_ERROR, game.map);
+		errors(NO_PIECES_ERROR, game.map, game.img);
 	if (game.exitnbr < 1)
-		errors(NO_EXIT_ERROR, game.map);
+		errors(NO_EXIT_ERROR, game.map, game.img);
 	if (game.exitnbr > 1)
-		errors(TOO_MANY_EXIT_ERROR, game.map);
+		errors(TOO_MANY_EXIT_ERROR, game.map, game.img);
 }
 
 // Check if the map is missing elements like a collectible an exit or

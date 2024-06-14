@@ -6,7 +6,7 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/06/09 03:10:20 by cluby            ###   ########.fr        #
+#    Updated: 2024/06/14 21:56:45 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ SRC =	src/main.c\
 		src/missing.c\
 		src/utils.c\
 		src/check_arg.c\
-		src/game.c
+		src/game.c\
+		src/utils2.c\
+		src/keyfunc.c
 OBJ = $(SRC:.c=.o)
 NAME = so_long
 LIBFT = libft

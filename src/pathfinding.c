@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/09 03:59:49 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/14 21:14:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	cpymap(t_game *game)
 
 	game->temp_map = (char **)ft_calloc(game->height + 1, sizeof(char *));
 	if (!game->temp_map)
-		errors(MALLOC_ERROR, game->map);
+		errors(MALLOC_ERROR, game->map, game->img);
 	y = 0;
 	while (y < game->height)
 	{
@@ -53,7 +53,7 @@ static void	cpymap(t_game *game)
 		if (!game->temp_map[y])
 		{
 			freemap(game->temp_map);
-			errors(MALLOC_ERROR, game->map);
+			errors(MALLOC_ERROR, game->map, game->img);
 		}
 		y++;
 	}
@@ -68,7 +68,7 @@ void	pathfinding(t_game game)
 	int	y;
 
 	y = 0;
-	while (y < game.height)
+	while (game.map[y])
 	{
 		find_missing(game.map[y], &game, y);
 		y++;
@@ -77,7 +77,7 @@ void	pathfinding(t_game game)
 	if (!(flood_fill(&game, game.player_x, game.player_y, game.coinsnbr)))
 	{
 		freemap(game.temp_map);
-		errors(ERROR_PATH, game.map);
+		errors(ERROR_PATH, game.map, game.img);
 	}
 	freemap(game.temp_map);
 }
