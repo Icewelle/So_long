@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:52:50 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:42:32 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 22:08:43 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,15 @@ void	freeimg(t_images **img)
 		if (img[i])
 		{
 			free(img[i]);
-			img[i] = NULL;	
+			img[i] = NULL;
 		}
 		i++;
 	}
 	free(img);
+}
+
+void	press_esc(t_game *game, mlx_key_data_t keydata)
+{
+	(void)keydata;
+	clean_kill(game, NULL);
 }

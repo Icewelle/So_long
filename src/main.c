@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/15 00:20:18 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 22:10:18 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	main(int argc, char *argv[])
 		return (0);
 	checkarg(argv[1]);
 	get_map(argv, &game);
+	if (game.width > 59 || game.height > 30)
+		errors(MAP_ERROR, game.map, game.img);
 	game.mlx = mlx_init(game.width * (TILE_SIZE + 1), \
 	game.height * (TILE_SIZE + 1), "So_long", true);
 	if (!(game.mlx))

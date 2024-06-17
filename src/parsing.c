@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:13:53 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 19:50:35 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,6 @@ void	get_map(char **argv, t_game *game)
 	makemap(game, fd);
 	game->width = ft_strlen(game->map[0]) - 1;
 	parsing_y(game);
-	pathfinding(*game);
+	pathfinding(game);
 	close(fd);
 }

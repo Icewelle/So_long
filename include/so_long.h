@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:56:41 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 22:09:08 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ typedef struct game
 
 void	get_map(char **argv, t_game *game);
 void	errors(char *error, char **map, t_images **img);
-void	pathfinding(t_game game);
+void	pathfinding(t_game *game);
 void	find_missing(char *map_line, t_game *game, int y);
 void	freemap(char **map);
 int		count_lines(char *map);
@@ -89,5 +89,6 @@ void	clean_kill(t_game *game, t_textures *texture);
 void	init_img(t_game *game);
 void	freeimg(t_images **img);
 void	keyfunc(mlx_key_data_t keydata, void *game);
+void	press_esc(t_game *game, mlx_key_data_t keydata);
 
 #endif

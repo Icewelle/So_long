@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:14:49 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 19:51:09 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,21 @@ static void	cpymap(t_game *game)
 // elements (collectible, player, exit).
 // Doing a simple pathfinding with a flood fill algorithm to make sure
 // the collectibles and the exit are all reachable (no walls blocking the path).
-void	pathfinding(t_game game)
+void	pathfinding(t_game *game)
 {
 	int	y;
 
 	y = 0;
-	while (game.map[y])
+	while (game->map[y])
 	{
-		find_missing(game.map[y], &game, y);
+		find_missing(game->map[y], game, y);
 		y++;
 	}
-	cpymap(&game);
-	if (!(flood_fill(&game, game.player_x, game.player_y, game.coinsnbr)))
+	cpymap(game);
+	if (!(flood_fill(game, game->player_x, game->player_y, game->coinsnbr)))
 	{
-		freemap(game.temp_map);
-		errors(ERROR_PATH, game.map, game.img);
+		freemap(game->temp_map);
+		errors(ERROR_PATH, game->map, game->img);
 	}
-	freemap(game.temp_map);
+	freemap(game->temp_map);
 }

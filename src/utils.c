@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:44:54 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/17 21:09:51 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,21 @@ void	makemap(t_game *game, int fd)
 
 void	clean_kill(t_game *game, t_textures *texture)
 {
-	freemap(game->map);
 	mlx_delete_image(game->mlx, game->img[GROUND]->id);
-	mlx_delete_texture(texture->ground);
+	if (texture)
+		mlx_delete_texture(texture->ground);
 	mlx_delete_image(game->mlx, game->img[WALL]->id);
-	mlx_delete_texture(texture->wall);
+	if (texture)
+		mlx_delete_texture(texture->wall);
 	mlx_delete_image(game->mlx, game->img[COINS]->id);
-	mlx_delete_texture(texture->coins);
+	if (texture)
+		mlx_delete_texture(texture->coins);
 	mlx_delete_image(game->mlx, game->img[PLAYER]->id);
-	mlx_delete_texture(texture->player);
+	if (texture)
+		mlx_delete_texture(texture->player);
+	freemap(game->map);
+	freeimg(game->img);
+	mlx_close_window(game->mlx);
 	mlx_terminate(game->mlx);
+	exit(EXIT_SUCCESS);
 }
