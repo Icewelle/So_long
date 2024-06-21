@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/17 22:09:08 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/18 18:46:26 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@
 # define WALL 1
 # define PLAYER 2
 # define COINS 3
-# define EXIT 4
 
 typedef struct textures
 {

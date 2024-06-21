@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 03:02:17 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/17 21:59:05 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/18 18:58:20 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ static void	load_images(t_game *game, t_textures *texture)
 	game->img[PLAYER]->id = mlx_texture_to_image(game->mlx, texture->player);
 	if (!game->img[PLAYER]->id)
 		errors(MLX_ERROR, game->map, game->img);
+	mlx_delete_texture(texture->player);
+	mlx_delete_texture(texture->coins);
+	mlx_delete_texture(texture->wall);
+	mlx_delete_texture(texture->ground);
 }
 
 static void	put_image(t_game *game)

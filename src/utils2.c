@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:52:50 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/17 22:08:43 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/18 19:07:42 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ void	init_img(t_game *game)
 	game->img[WALL] = (t_images *)malloc(sizeof(t_images));
 	game->img[COINS] = (t_images *)malloc(sizeof(t_images));
 	game->img[PLAYER] = (t_images *)malloc(sizeof(t_images));
-	game->img[EXIT] = (t_images *)malloc(sizeof(t_images));
 	if (!game->img[GROUND] || !game->img[WALL] || !game->img[COINS] || \
-		!game->img[PLAYER] || !game->img[EXIT])
+		!game->img[PLAYER])
 		errors(MALLOC_ERROR, NULL, game->img);
 }
 
