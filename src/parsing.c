@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/17 19:50:35 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/24 13:48:40 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ static void	parsing_y(t_game *game)
 void	get_map(char **argv, t_game *game)
 {
 	int		fd;
-	int		i;
 
 	init_game(game);
 	game->height = count_lines(argv[1]);

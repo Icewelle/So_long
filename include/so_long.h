@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/18 18:46:26 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/24 14:43:49 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define WALL 1
 # define PLAYER 2
 # define COINS 3
+# define EXIT_IMG 4
 
 typedef struct textures
 {
@@ -47,6 +48,7 @@ typedef struct textures
 	mlx_texture_t	*ground;
 	mlx_texture_t	*wall;
 	mlx_texture_t	*coins;
+	mlx_texture_t	*exit;
 }					t_textures;
 
 typedef struct images
@@ -84,10 +86,10 @@ void	init_game(t_game *game);
 void	makemap(t_game *game, int fd);
 void	checkarg(char *filename);
 void	make_map(t_game *game, t_textures *texture);
-void	clean_kill(t_game *game, t_textures *texture);
+void	clean_kill(t_game *game);
 void	init_img(t_game *game);
 void	freeimg(t_images **img);
 void	keyfunc(mlx_key_data_t keydata, void *game);
-void	press_esc(t_game *game, mlx_key_data_t keydata);
+void	press_esc(t_game *game);
 
 #endif

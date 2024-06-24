@@ -6,13 +6,13 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/06/14 21:56:45 by cluby            ###   ########.fr        #
+#    Updated: 2024/06/24 13:54:48 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKEFLAGS += --silent
 C = cc
-CCFLAGS = -Wall -Werror -Wextra -I include -g
+CFLAGS = -Wall -Werror -Wextra -I include -g
 SRC =	src/main.c\
 		src/parsing.c\
 		src/errors.c\
@@ -46,7 +46,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(COMP_START)
 	@make -C $(LIBFT)
-	cc $(CCFLAGS) $(OBJ) -o so_long ./libft/libft.a -ldl -lglfw -lm -lpthread -LMLX42/build -lmlx42 -IMLX42/include
+	cc $(CFLAGS) $(OBJ) -o so_long ./libft/libft.a -ldl -lglfw -lm -lpthread -LMLX42/build -lmlx42 -IMLX42/include
 	@$(COMP_END)
 
 clean :

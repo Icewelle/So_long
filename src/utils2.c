@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:52:50 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/18 19:07:42 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/24 14:44:32 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	init_img(t_game *game)
 {
-	game->img = (t_images **)malloc(sizeof(t_images *) * 5);
+	game->img = (t_images **)malloc(sizeof(t_images *) * 6);
 	if (!game->img)
 		errors(MALLOC_ERROR, NULL, NULL);
 	game->img[GROUND] = (t_images *)malloc(sizeof(t_images));
 	game->img[WALL] = (t_images *)malloc(sizeof(t_images));
 	game->img[COINS] = (t_images *)malloc(sizeof(t_images));
 	game->img[PLAYER] = (t_images *)malloc(sizeof(t_images));
+	game->img[EXIT_IMG] = (t_images *)malloc(sizeof(t_images));
 	if (!game->img[GROUND] || !game->img[WALL] || !game->img[COINS] || \
 		!game->img[PLAYER])
 		errors(MALLOC_ERROR, NULL, game->img);
@@ -33,7 +34,7 @@ void	freeimg(t_images **img)
 	i = 0;
 	if (!img)
 		return ;
-	while (i < 4)
+	while (i < 5)
 	{
 		if (img[i])
 		{
@@ -45,8 +46,7 @@ void	freeimg(t_images **img)
 	free(img);
 }
 
-void	press_esc(t_game *game, mlx_key_data_t keydata)
+void	press_esc(t_game *game)
 {
-	(void)keydata;
-	clean_kill(game, NULL);
+	clean_kill(game);
 }

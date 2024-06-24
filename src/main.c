@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:20:34 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/17 22:10:18 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/24 14:51:02 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int	main(int argc, char *argv[])
 	make_map(&game, &texture);
 	mlx_key_hook(game.mlx, &keyfunc, &game);
 	mlx_loop(game.mlx);
-	clean_kill(&game, &texture);
+	clean_kill(&game);
 	return (0);
 }
