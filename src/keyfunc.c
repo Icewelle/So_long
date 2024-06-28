@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:59:32 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/24 15:01:28 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:00:51 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 static void	press_w(t_game *game)
 {

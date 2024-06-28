@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 22:37:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:16:25 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:05:16 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 // Display errors and free the previously malloced map.
 void	errors(char *error, char	**map, t_images **img)

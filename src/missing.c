@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 02:02:09 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:16:11 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:01:00 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 // Do the final check for the missing element to be sure there's not
 // too little or too many elements.

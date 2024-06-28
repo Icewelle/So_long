@@ -6,27 +6,27 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/24 13:59:43 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:14:04 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 // Replace the tiles of the map which aren't character '1' by the FILLED
 // character (here initialized as 'F' like filled), while also counting
 // the number of collectibles and exit it replace and at the end we check if
 // all collectibles and exit have been reached.
-static int	flood_fill(t_game *game, int x, int y, int collect)
+static int	flood_fill(t_game *game, int x, int y, int *collect)
 {
 	if (x < 0 || y < 0 || x > game->width - 1 || y > game->height - 1)
 		return (0);
 	if (game->temp_map[y][x] == '1' || game->temp_map[y][x] == FILLED)
 		return (0);
 	if (game->temp_map[y][x] == 'C')
-		(collect)--;
+		(*collect)--;
 	if (game->temp_map[y][x] == 'E')
 		game->is_exit = 1;
-	if (game->is_exit == 1 && collect == 0)
+	if (game->is_exit == 1 && *collect == 0)
 		return (1);
 	game->temp_map[y][x] = FILLED;
 	if (flood_fill(game, x + 1, y, collect) || \
@@ -66,6 +66,7 @@ static void	cpymap(t_game *game)
 void	pathfinding(t_game *game)
 {
 	int	y;
+	int	temp_collect;
 
 	y = 0;
 	while (game->map[y])
@@ -74,7 +75,8 @@ void	pathfinding(t_game *game)
 		y++;
 	}
 	cpymap(game);
-	if (!(flood_fill(game, game->player_x, game->player_y, game->coinsnbr)))
+	temp_collect = game->coinsnbr;
+	if (!(flood_fill(game, game->player_x, game->player_y, &temp_collect)))
 	{
 		freemap(game->temp_map);
 		errors(ERROR_PATH, game->map, game->img);

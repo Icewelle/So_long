@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:52:50 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/24 14:44:32 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:05:28 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 void	init_img(t_game *game)
 {
@@ -49,4 +49,28 @@ void	freeimg(t_images **img)
 void	press_esc(t_game *game)
 {
 	clean_kill(game);
+}
+
+void	ft_put_image(t_game *game)
+{
+	if (game->map[game->pos_y][game->pos_x] == 'E')
+		if (mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, 65 * \
+		game->pos_x, 65 * game->pos_y) < 0)
+			errors(MLX_ERROR, game->map, game->img);
+	if (game->map[game->pos_y][game->pos_x] == '1')
+		if (mlx_image_to_window(game->mlx, game->img[WALL]->id, 65 * \
+		game->pos_x, 65 * game->pos_y) < 0)
+			errors(MLX_ERROR, game->map, game->img);
+	if (game->map[game->pos_y][game->pos_x] == '0')
+		if (mlx_image_to_window(game->mlx, game->img[GROUND]->id, 65 * \
+		game->pos_x, 65 * game->pos_y) < 0)
+			errors(MLX_ERROR, game->map, game->img);
+	if (game->map[game->pos_y][game->pos_x] == 'C')
+		if (mlx_image_to_window(game->mlx, game->img[COINS]->id, 65 * \
+		game->pos_x, 65 * game->pos_y) < 0)
+			errors(MLX_ERROR, game->map, game->img);
+	if (game->map[game->pos_y][game->pos_x] == 'P')
+		if (mlx_image_to_window(game->mlx, game->img[PLAYER]->id, 65 * \
+		game->pos_x, 65 * game->pos_y) < 0)
+			errors(MLX_ERROR, game->map, game->img);
 }

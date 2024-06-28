@@ -6,13 +6,13 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/06/28 11:36:14 by cluby            ###   ########.fr        #
+#    Updated: 2024/06/28 13:01:45 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKEFLAGS += --silent
+#MAKEFLAGS += --silent
 C = cc
-CFLAGS = -Wall -Werror -Wextra -I include -g
+CFLAGS = -Wall -Werror -Wextra -Iinclude -g
 SRC =	src/main.c\
 		src/parsing.c\
 		src/errors.c\

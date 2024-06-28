@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/24 13:58:36 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:01:13 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 // Free the malloced maps
 void	freemap(char **map)

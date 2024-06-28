@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 03:02:17 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/24 14:56:09 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:06:04 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 static mlx_texture_t	*load_textures(t_game *game, char *path)
 {
@@ -57,26 +57,7 @@ static void	put_image(t_game *game)
 	{
 		while (game->map[game->pos_y][game->pos_x])
 		{
-			if (game->map[game->pos_y][game->pos_x] == 'E')
-				if (mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, 65 * \
-				game->pos_x, 65 * game->pos_y) < 0)
-					errors(MLX_ERROR, game->map, game->img);
-			if (game->map[game->pos_y][game->pos_x] == '1')
-				if (mlx_image_to_window(game->mlx, game->img[WALL]->id, 65 * \
-				game->pos_x, 65 * game->pos_y) < 0)
-					errors(MLX_ERROR, game->map, game->img);
-			if (game->map[game->pos_y][game->pos_x] == '0')
-				if (mlx_image_to_window(game->mlx, game->img[GROUND]->id, 65 * \
-				game->pos_x, 65 * game->pos_y) < 0)
-					errors(MLX_ERROR, game->map, game->img);
-			if (game->map[game->pos_y][game->pos_x] == 'C')
-				if (mlx_image_to_window(game->mlx, game->img[COINS]->id, 65 * \
-				game->pos_x, 65 * game->pos_y) < 0)
-					errors(MLX_ERROR, game->map, game->img);
-			if (game->map[game->pos_y][game->pos_x] == 'P')
-				if (mlx_image_to_window(game->mlx, game->img[PLAYER]->id, 65 * \
-				game->pos_x, 65 * game->pos_y) < 0)
-					errors(MLX_ERROR, game->map, game->img);
+			ft_put_image(game);
 			game->pos_x++;
 		}
 		game->pos_y++;

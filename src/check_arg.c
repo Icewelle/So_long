@@ -6,11 +6,11 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 02:39:47 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/14 21:17:04 by cluby            ###   ########.fr       */
+/*   Updated: 2024/06/28 13:00:35 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "so_long.h"
 
 // Check if the file is in the good format.
 void	checkarg(char *filename)
