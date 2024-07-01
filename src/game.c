@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 03:02:17 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/28 13:06:04 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/01 13:22:37 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static mlx_texture_t	*load_textures(t_game *game, char *path)
 
 	texture = mlx_load_png(path);
 	if (!texture)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	return (texture);
 }
 
@@ -31,19 +31,19 @@ static void	load_images(t_game *game, t_textures *texture)
 	texture->ground = load_textures(game, "./img/white.png");
 	game->img[EXIT_IMG]->id = mlx_texture_to_image(game->mlx, texture->exit);
 	if (!game->img[EXIT_IMG]->id)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	game->img[WALL]->id = mlx_texture_to_image(game->mlx, texture->wall);
 	if (!game->img[WALL]->id)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	game->img[COINS]->id = mlx_texture_to_image(game->mlx, texture->coins);
 	if (!game->img[COINS]->id)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	game->img[PLAYER]->id = mlx_texture_to_image(game->mlx, texture->player);
 	if (!game->img[PLAYER]->id)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	game->img[GROUND]->id = mlx_texture_to_image(game->mlx, texture->ground);
 	if (!game->img[0]->id)
-		errors(MLX_ERROR, game->map, game->img);
+		errors(MLX_ERROR, game);
 	mlx_delete_texture(texture->player);
 	mlx_delete_texture(texture->coins);
 	mlx_delete_texture(texture->wall);

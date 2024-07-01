@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:23 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/28 13:01:03 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/01 14:58:32 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static void	top_bottom_walls(char *map_line, t_game *game)
 
 	x = 0;
 	if (!map_line)
-		errors(WALLS_ERROR, game->map, game->img);
+		errors(WALLS_ERROR, game);
 	while (map_line[x])
 	{
 		if (map_line[x] != '1' && map_line[x] != '\n')
-			errors(WALLS_ERROR, game->map, game->img);
+			errors(WALLS_ERROR, game);
 		x++;
 	}
 }
@@ -43,7 +43,7 @@ static void	check_rectangle(char *map_line, t_game *game)
 	if (first_line == 0)
 		first_line = x;
 	if (first_line != x)
-		errors(BAD_SIZE, game->map, game->img);
+		errors(BAD_SIZE, game);
 }
 
 // Check the size of each lines and if there's any non-allowed
@@ -57,16 +57,16 @@ static void	parsing_x(char *map_line, t_game *game)
 	check_rectangle(map_line, game);
 	x = 0;
 	if (map_line[0] != '1')
-		errors(WALLS_ERROR, game->map, game->img);
+		errors(WALLS_ERROR, game);
 	while (map_line[x])
 	{
 		if (map_line[x] != '0' && map_line[x] != '1' && map_line[x] != 'E' && \
 			map_line[x] != 'C' && map_line[x] != 'P' && map_line[x] != '\n')
-			errors(BAD_CHARACTER, game->map, game->img);
+			errors(BAD_CHARACTER, game);
 		x++;
 	}
 	if (map_line[x - 2] != '1')
-		errors(WALLS_ERROR, game->map, game->img);
+		errors(WALLS_ERROR, game);
 }
 
 // Check the first and last lines since they are special cases and then check
@@ -91,12 +91,12 @@ void	get_map(char **argv, t_game *game)
 	init_game(game);
 	game->height = count_lines(argv[1]);
 	if (game->height == -1)
-		errors(OPEN_ERROR, NULL, game->img);
+		errors(OPEN_ERROR, game);
 	else if (game->height < 3)
-		errors(MAP_ERROR, NULL, game->img);
+		errors(MAP_ERROR, game);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		errors(OPEN_ERROR, NULL, game->img);
+		errors(OPEN_ERROR, game);
 	makemap(game, fd);
 	game->width = ft_strlen(game->map[0]) - 1;
 	parsing_y(game);

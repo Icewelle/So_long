@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:59:32 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/28 13:00:51 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/01 14:57:43 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static void	press_w(t_game *game)
 {
-	ft_printf("Move count : %d\n", game->img[PLAYER]->id->count);
 	if (game->map[game->pos_y - 1][game->pos_x] == '1')
 		return ;
 	else if (game->map[game->pos_y - 1][game->pos_x] == 'C')
@@ -22,6 +21,8 @@ static void	press_w(t_game *game)
 		game->map[game->pos_y - 1][game->pos_x] = '0';
 		game->coinsnbr--;
 	}
+	game->moves++;
+	ft_printf("Move count : %d\n", game->moves);
 	if (game->map[game->pos_y - 1][game->pos_x] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_y--;
@@ -40,7 +41,6 @@ static void	press_w(t_game *game)
 
 static void	press_a(t_game *game)
 {
-	ft_printf("Move count : %d\n", game->img[PLAYER]->id->count);
 	if (game->map[game->pos_y][game->pos_x - 1] == '1')
 		return ;
 	else if (game->map[game->pos_y][game->pos_x - 1] == 'C')
@@ -48,6 +48,8 @@ static void	press_a(t_game *game)
 		game->map[game->pos_y][game->pos_x - 1] = '0';
 		game->coinsnbr--;
 	}
+	game->moves++;
+	ft_printf("Move count : %d\n", game->moves);
 	if (game->map[game->pos_y][game->pos_x - 1] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_x--;
@@ -64,7 +66,6 @@ static void	press_a(t_game *game)
 
 static void	press_s(t_game *game)
 {
-	ft_printf("Move count : %d\n", game->img[PLAYER]->id->count);
 	if (game->map[game->pos_y + 1][game->pos_x] == '1')
 		return ;
 	else if (game->map[game->pos_y + 1][game->pos_x] == 'C')
@@ -72,6 +73,8 @@ static void	press_s(t_game *game)
 		game->map[game->pos_y + 1][game->pos_x] = '0';
 		game->coinsnbr--;
 	}
+	game->moves++;
+	ft_printf("Move count : %d\n", game->moves);
 	if (game->map[game->pos_y + 1][game->pos_x] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_y++;
@@ -88,7 +91,6 @@ static void	press_s(t_game *game)
 
 static void	press_d(t_game *game)
 {
-	ft_printf("Move count : %d\n", game->img[PLAYER]->id->count);
 	if (game->map[game->pos_y][game->pos_x + 1] == '1')
 		return ;
 	else if (game->map[game->pos_y][game->pos_x + 1] == 'C')
@@ -96,6 +98,8 @@ static void	press_d(t_game *game)
 		game->map[game->pos_y][game->pos_x + 1] = '0';
 		game->coinsnbr--;
 	}
+	game->moves++;
+	ft_printf("Move count : %d\n", game->moves);
 	if (game->map[game->pos_y][game->pos_x + 1] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_x++;

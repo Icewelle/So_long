@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/28 13:01:13 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/01 13:36:30 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	init_game(t_game *game)
 	game->is_exit = 0;
 	game->pos_x = 0;
 	game->pos_y = 0;
+	game->moves = 0;
 	init_img(game);
 }
 
@@ -82,16 +83,16 @@ void	makemap(t_game *game, int fd)
 
 	game->map = (char **)malloc(sizeof(char *) * (game->height + 1));
 	if (!game->map)
-		errors(MALLOC_ERROR, NULL, game->img);
+		errors(MALLOC_ERROR, game);
 	game->map[0] = get_next_line(fd);
 	if (!game->map[0])
-		errors(MAP_ERROR, game->map, game->img);
+		errors(MAP_ERROR, game);
 	i = 0;
 	while (game->map[i] != NULL)
 	{
 		game->map[++i] = get_next_line(fd);
 		if (!game->map[i] && i != game->height)
-			errors(MALLOC_ERROR, game->map, game->img);
+			errors(MALLOC_ERROR, game);
 	}
 }
 

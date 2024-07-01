@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 21:25:14 by cluby             #+#    #+#             */
-/*   Updated: 2024/06/28 13:14:04 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/01 13:20:30 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	cpymap(t_game *game)
 
 	game->temp_map = (char **)ft_calloc(game->height + 1, sizeof(char *));
 	if (!game->temp_map)
-		errors(MALLOC_ERROR, game->map, game->img);
+		errors(MALLOC_ERROR, game);
 	y = 0;
 	while (y < game->height)
 	{
@@ -53,7 +53,7 @@ static void	cpymap(t_game *game)
 		if (!game->temp_map[y])
 		{
 			freemap(game->temp_map);
-			errors(MALLOC_ERROR, game->map, game->img);
+			errors(MALLOC_ERROR, game);
 		}
 		y++;
 	}
@@ -79,7 +79,7 @@ void	pathfinding(t_game *game)
 	if (!(flood_fill(game, game->player_x, game->player_y, &temp_collect)))
 	{
 		freemap(game->temp_map);
-		errors(ERROR_PATH, game->map, game->img);
+		errors(ERROR_PATH, game);
 	}
 	freemap(game->temp_map);
 }
