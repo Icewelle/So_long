@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 00:13:13 by cluby             #+#    #+#             */
-/*   Updated: 2024/07/01 13:36:30 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/04 16:37:25 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	count_lines(char *map)
 // Initialize most of the game datas to be able to use everything later.
 void	init_game(t_game *game)
 {
+	game->mlx = NULL;
 	game->map = NULL;
 	game->temp_map = NULL;
 	game->player_x = 0;

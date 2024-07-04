@@ -6,11 +6,11 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/06/28 13:01:45 by cluby            ###   ########.fr        #
+#    Updated: 2024/07/04 12:19:29 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#MAKEFLAGS += --silent
+MAKEFLAGS += --silent
 C = cc
 CFLAGS = -Wall -Werror -Wextra -Iinclude -g
 SRC =	src/main.c\

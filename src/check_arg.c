@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 02:39:47 by cluby             #+#    #+#             */
-/*   Updated: 2024/07/02 15:42:20 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/04 16:55:32 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	checkarg(char *filename)
 			if ((filename[i + 1] != 'b' || filename[i + 2] != 'e' || \
 			filename[i + 3] != 'r'))
 				errors(FILE_NAME, NULL);
+			break ;
 		}
 	}
 	if (comma == 0)

@@ -1,3 +1,5 @@
+MAKEFLAGS += --silent.
+
 CC = cc
 CCFLAGS = -Wall -Werror -Wextra -Iincludes -g
 SRC =	convert/ft_atoi.c \
