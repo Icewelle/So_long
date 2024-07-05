@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 20:52:50 by cluby             #+#    #+#             */
-/*   Updated: 2024/07/01 13:21:40 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/05 11:29:48 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,14 @@ void	ft_put_image(t_game *game)
 		if (mlx_image_to_window(game->mlx, game->img[PLAYER]->id, 65 * \
 		game->pos_x, 65 * game->pos_y) < 0)
 			errors(MLX_ERROR, game);
+}
+
+void	ft_put_image2(t_game *game, int x, int y)
+{
+	if (mlx_image_to_window(game->mlx, game->img[PLAYER]->id, \
+	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1)) < 0)
+		errors(MLX_ERROR, game);
+	if (mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
+	(game->pos_x + x) * (TILE_SIZE + 1), (game->pos_y + y) * (TILE_SIZE + 1)) < 0)
+		errors(MLX_ERROR, game);
 }

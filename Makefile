@@ -6,7 +6,7 @@
 #    By: cluby <cluby@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 16:19:28 by cluby             #+#    #+#              #
-#    Updated: 2024/07/04 12:19:29 by cluby            ###   ########.fr        #
+#    Updated: 2024/07/05 11:20:33 by cluby            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(COMP_START)
 	@make -C $(LIBFT)
-	cc $(CFLAGS) $(OBJ) -o so_long ./libft/libft.a -ldl -lglfw -lm -lpthread -LMLX42/build -lmlx42 -IMLX42/include
+	cc $(CFLAGS) $(OBJ) -o so_long ./libft/libft.a -ldl -lm -lpthread -LMLX42/build -lmlx42 -IMLX42/include -lglfw
 	@$(COMP_END)
 
 clean :

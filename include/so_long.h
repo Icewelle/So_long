@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 14:17:39 by cluby             #+#    #+#             */
-/*   Updated: 2024/07/01 13:36:17 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/05 11:26:12 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ void	freeimg(t_images **img);
 void	keyfunc(mlx_key_data_t keydata, void *game);
 void	press_esc(t_game *game);
 void	ft_put_image(t_game *game);
+void	ft_put_image2(t_game *game, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cluby <cluby@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 19:59:32 by cluby             #+#    #+#             */
-/*   Updated: 2024/07/01 14:57:43 by cluby            ###   ########.fr       */
+/*   Updated: 2024/07/05 11:33:19 by cluby            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,7 @@ static void	press_w(t_game *game)
 	if (game->map[game->pos_y - 1][game->pos_x] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_y--;
-	mlx_image_to_window(game->mlx, game->img[PLAYER]->id, \
-	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
-	mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
-	game->pos_x * (TILE_SIZE + 1), (game->pos_y + 1) * (TILE_SIZE + 1));
-	mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
-	game->pos_x * (TILE_SIZE + 1), (game->pos_y + 1) * (TILE_SIZE + 1));
+	ft_put_image2(game, 0, 1);
 	if (game->map[game->pos_y + 1][game->pos_x] == 'E' && game->coinsnbr > 0)
 	{
 		mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, \
@@ -53,10 +48,7 @@ static void	press_a(t_game *game)
 	if (game->map[game->pos_y][game->pos_x - 1] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_x--;
-	mlx_image_to_window(game->mlx, game->img[PLAYER]->id, \
-	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
-	mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
-	(game->pos_x + 1) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
+	ft_put_image2(game, 1, 0);
 	if (game->map[game->pos_y][game->pos_x + 1] == 'E' && game->coinsnbr > 0)
 	{
 		mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, \
@@ -78,10 +70,7 @@ static void	press_s(t_game *game)
 	if (game->map[game->pos_y + 1][game->pos_x] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_y++;
-	mlx_image_to_window(game->mlx, game->img[PLAYER]->id, \
-	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
-	mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
-	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y - 1) * (TILE_SIZE + 1));
+	ft_put_image2(game, 0, -1);
 	if (game->map[game->pos_y - 1][game->pos_x] == 'E' && game->coinsnbr > 0)
 	{
 		mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, \
@@ -103,10 +92,7 @@ static void	press_d(t_game *game)
 	if (game->map[game->pos_y][game->pos_x + 1] == 'E' && game->coinsnbr < 1)
 		clean_kill(game);
 	game->pos_x++;
-	mlx_image_to_window(game->mlx, game->img[PLAYER]->id, \
-	(game->pos_x) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
-	mlx_image_to_window(game->mlx, game->img[GROUND]->id, \
-	(game->pos_x - 1) * (TILE_SIZE + 1), (game->pos_y) * (TILE_SIZE + 1));
+	ft_put_image2(game, -1, 0);
 	if (game->map[game->pos_y][game->pos_x - 1] == 'E' && game->coinsnbr > 0)
 	{
 		mlx_image_to_window(game->mlx, game->img[EXIT_IMG]->id, \
